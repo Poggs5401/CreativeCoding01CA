@@ -73,8 +73,10 @@ class BarChart {
       this.margin -
       ((this.data.length - 1) * this.gap) / this.data.length;
     let masterGap = blockWidth + this.gap;
-    let colourAngle = (100 /
-    
+    let colourAngle = 100 / 3;
+
+    for (let x = 0; x < this.data.length; x++) {
+      push();
       translate(this.margin + x * masterGap, 0);
       let yMod = 0;
       noStroke();
@@ -84,15 +86,14 @@ class BarChart {
         rect(0, -yMod, blockWidth, this.scaler(-this.bars[x][y]));
         yMod += this.scaler(this.bars[x][y]);
       }
-
-      // rect(0, 0, blockWidth, this.scaler(-this.data[x].Playstation_5));
-      // console.log(this.data[x].Total);
-      rotate(150);
-      textAlign(CENTER, CENTER);
-      fill(0);
-      textSize(16);
-      text(this.data[x].Store, -25, 45);
-      pop();
+    // rect(0, 0, blockWidth, this.scaler(-this.data[x].Playstation_5));
+    // console.log(this.data[x].Total);
+    rotate(150);
+    textAlign(CENTER, CENTER);
+    fill(0);
+    textSize(16);
+    text(this.data[x].Store, -25, 45);
+    pop();
     }
   }
 
